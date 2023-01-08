@@ -1,17 +1,17 @@
 import { createTheme, getContrastRatio } from '@mui/material/styles';
 import { createAsyncThunk, createSelector, createSlice } from '@reduxjs/toolkit';
-import _ from '@lodash';
+import _ from '../../utils/lodash';
 import {
   defaultSettings,
   defaultThemeOptions,
   extendThemeWithMixins,
   getParsedQuerySettings,
   mustHaveThemeOptions,
-} from '@fuse/default-settings';
-import settingsConfig from 'app/configs/settingsConfig';
-import themeLayoutConfigs from 'app/theme-layouts/themeLayoutConfigs';
-import { setUser, updateUserSettings } from 'app/store/userSlice';
-import { darkPaletteText, lightPaletteText } from 'app/configs/themesConfig';
+} from '../../config/fuse/FuseDefaultSettings.js';
+import settingsConfig from '../../config/settingsConfig';
+import themeLayoutConfigs from '../../config/themeConfig';
+import { setUser, updateUserSettings } from '../userSlice';
+import { darkPaletteText, lightPaletteText } from '../../config/themeConfig';
 
 export const changeFuseTheme = (theme) => (dispatch, getState) => {
   const { fuse } = getState();
@@ -26,7 +26,8 @@ export const changeFuseTheme = (theme) => (dispatch, getState) => {
       footer: theme,
     },
   };
-
+  
+  // @ts-ignore
   dispatch(setDefaultSettings(newSettings));
 };
 
@@ -62,10 +63,12 @@ const initialState = {
 export const setDefaultSettings = createAsyncThunk(
   'fuse/settings/setDefaultSettings',
   async (val, { dispatch, getState }) => {
+    // @ts-ignore
     const { fuse } = getState();
     const { settings } = fuse;
     const defaults = generateSettings(settings.defaults, val);
 
+    // @ts-ignore
     dispatch(updateUserSettings(defaults));
 
     return {
@@ -89,9 +92,11 @@ const settingsSlice = createSlice({
       };
     },
 
+    // @ts-ignore
     setInitialSettings: (state, action) => {
       return _.merge({}, initialState);
     },
+    // @ts-ignore
     resetSettings: (state, action) => {
       return {
         ...state,
@@ -101,7 +106,9 @@ const settingsSlice = createSlice({
     },
   },
   extraReducers: {
+    // @ts-ignore
     [setDefaultSettings.fulfilled]: (state, action) => action.payload,
+    // @ts-ignore
     [setUser.fulfilled]: (state, action) => {
       const defaults = generateSettings(state.defaults, action.payload?.data?.settings);
       return {
@@ -168,6 +175,7 @@ function changeThemeMode(theme, mode) {
 
 export const selectMainTheme = createSelector(
   [getMainTheme, getDirection],
+  // @ts-ignore
   (theme, direction, id) => generateMuiTheme(theme, direction)
 );
 

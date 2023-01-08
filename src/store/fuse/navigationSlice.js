@@ -1,19 +1,36 @@
 import { createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
 import navigationConfig from '../../config/navigationConfig';
-
+// import FuseUtils from '../../utils/fuse';
 import i18next from 'i18next';
-import _ from '@lodash';
+import _ from '../../utils/lodash';
 
 const navigationAdapter = createEntityAdapter();
 const emptyInitialState = navigationAdapter.getInitialState();
 const initialState = navigationAdapter.upsertMany(emptyInitialState, navigationConfig);
 
+export const appendNavigationItem = (item, parentId) => (dispatch, getState) => {
+  const navigation = selectNavigationAll(getState());
 
+  return dispatch(setNavigation(FuseUtils.appendNavItem(navigation, item, parentId)));
+};
 
+export const prependNavigationItem = (item, parentId) => (dispatch, getState) => {
+  const navigation = selectNavigationAll(getState());
 
+  return dispatch(setNavigation(FuseUtils.prependNavItem(navigation, item, parentId)));
+};
 
+export const updateNavigationItem = (id, item) => (dispatch, getState) => {
+  const navigation = selectNavigationAll(getState());
 
+  return dispatch(setNavigation(FuseUtils.updateNavItem(navigation, id, item)));
+};
 
+export const removeNavigationItem = (id) => (dispatch, getState) => {
+  const navigation = selectNavigationAll(getState());
+
+  return dispatch(setNavigation(FuseUtils.removeNavItem(navigation, id)));
+};
 
 export const {
   selectAll: selectNavigationAll,
