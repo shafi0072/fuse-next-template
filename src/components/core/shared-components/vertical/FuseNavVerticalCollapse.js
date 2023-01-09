@@ -63,7 +63,7 @@ const Root = styled(List)(({ theme, ...props }) => ({
 // }
 
 function FuseNavVerticalCollapse(props) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const { item, nestedLevel, onItemClick } = props;
   const itempadding = nestedLevel > 0 ? 38 + nestedLevel * 16 : 16;
 

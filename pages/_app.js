@@ -7,6 +7,12 @@ import "../styles/print.css";
 import "../styles/prism.css";
 import "../styles/tables.css";
 import "../public/assets/tailwind-base.css";
+import '../public/assets/fonts/inter/inter.css'
+import '../public/assets/fonts/material-design-icons/MaterialIcons.css'
+import '../public/assets/fonts/material-design-icons/MaterialIconsOutlined.css'
+import '../public/assets/fonts/material-design-icons/MaterialIconsRound.css'
+import '../public/assets/fonts/material-design-icons/MaterialIconsSharp.css'
+import '../public/assets/fonts/material-design-icons/MaterialIconsTwoTone.css'
 import { ThemeProvider } from "@mui/material";
 import themeConfig from "../src/config/themeConfig";
 import Layout from "../src/components/layout";

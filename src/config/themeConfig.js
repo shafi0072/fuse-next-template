@@ -14,6 +14,7 @@ export const darkPaletteText = {
 };
 
 const themesConfig = createTheme({
+  // @ts-ignore
   default: {
     palette: {
       mode: 'light',
