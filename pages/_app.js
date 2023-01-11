@@ -16,16 +16,19 @@ import '../public/assets/fonts/material-design-icons/MaterialIconsTwoTone.css'
 import { ThemeProvider } from "@mui/material";
 import themeConfig from "../src/config/themeConfig";
 import Layout from "../src/components/layout";
+import { useRouter } from "next/router";
 // import { Provider } from "react-redux";
 // import store from '../src/store'
 export default function App({ Component, pageProps }) {
+  const router = useRouter()
+  console.log(router.pathname)
   return (
  
-    <ThemeProvider theme={themeConfig}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+   <>{router.pathname !== '/sign-in' ? ( <ThemeProvider theme={themeConfig}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  </ThemeProvider>):(<ThemeProvider theme={themeConfig}><Component {...pageProps} /></ThemeProvider>)}</>
   
   );
 }

@@ -12,6 +12,7 @@ const navbarWidth = 280;
 const Root = styled("div")(({ theme, folded }) => ({
   display: "flex",
   flexDirection: "column",
+  
   zIndex: 4,
   [theme.breakpoints.up("lg")]: {
     width: navbarWidth,
@@ -24,6 +25,7 @@ const Root = styled("div")(({ theme, folded }) => ({
       minWidth: 76,
     },
   }),
+  
 }));
 
 const StyledNavbar = styled("div")(
@@ -32,6 +34,7 @@ const StyledNavbar = styled("div")(
     width: navbarWidth,
     maxWidth: navbarWidth,
     maxHeight: "100%",
+    
     transition: theme.transitions.create(["width", "min-width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.shorter,
@@ -120,6 +123,7 @@ const StyledNavBar = styled("div")(({ theme, open, position }) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
+  
 }));
 
 const StyledNavbarMobile = styled(SwipeableDrawer)(({ theme, position }) => ({
@@ -141,6 +145,7 @@ const Index = () => {
   const [folded, setFolded] = useState(false)
 
   return (
+    <ThemeProvider theme={theme}>
     <Root
       folded={ 1 }
       open={true}
@@ -149,13 +154,15 @@ const Index = () => {
     >
       <Hidden lgDown>
         <StyledNavbar
-         className="flex-col flex-auto"
+          className="flex-col flex-auto"
           position={'left'}
           folded={true ? 1 : 0}
+          theme={theme}
           foldedandopened={folded ? 1 : 0}
           foldedandclosed={!folded ? 1 : 0}
           onMouseEnter={() => {setFolded(true)}}
           onMouseLeave={() => {setFolded(false)}}
+          
         >
           <NavbarStyle1 className="NavbarStyle2-content"/>
         </StyledNavbar>
@@ -180,6 +187,7 @@ const Index = () => {
         </StyledNavBarMobile> */}
       </Hidden>
     </Root>
+    </ThemeProvider>
   );
 };
 

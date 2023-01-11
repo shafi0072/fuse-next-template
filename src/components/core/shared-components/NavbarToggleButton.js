@@ -6,6 +6,7 @@ import useThemeMediaQuery from '../../../hooks/fuse/useThemeMediaQuery';
 // import { navbarToggle, navbarToggleMobile } from 'app/store/fuse/navbarSlice';
 import FuseSvgIcon from '../../../lib/fuse/core/FuseSvgIcon';
 import React from 'react';
+import { color } from '@mui/system';
 
 function NavbarToggleButton(props) {
   // const dispatch = useDispatch();
@@ -16,8 +17,9 @@ function NavbarToggleButton(props) {
   return (
     <IconButton
       className={props.className}
-      color="inherit"
+      color="secondary"
       size="small"
+      
       // onClick={(ev) => {
       //   if (isMobile) {
       //     dispatch(navbarToggleMobile());
@@ -39,7 +41,7 @@ function NavbarToggleButton(props) {
 
 NavbarToggleButton.defaultProps = {
   children: (
-    <FuseSvgIcon size={20} color="action">
+    <FuseSvgIcon size={20} color="white">
       heroicons-outline:view-list
     </FuseSvgIcon>
   ),

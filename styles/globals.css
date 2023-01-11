@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.css-qcs4k0 .NavbarStyle2-content .fuse-list-item {
+  
+  color: white!important;
+}
+
+.css-n5tsn5-MuiList-root .fuse-list-item {
+  color: white!important;
+}
+
+.css-83ijpv-MuiTypography-root  {
+  
+  color: rgb(148, 163, 184)!important;
+  
+}
+
+.css-txg3z {
+  
+  color: white!important;
+}
+.css-z3b6pe {
+  
+  color: white!important;
+}
+.signup_rightSide{
+  height: 100vh!important;
+}
+.signin_left{
+  height: 100vh!important;
+}
+.css-nrbnup {
+  background-color: #1e293b!important;
+}

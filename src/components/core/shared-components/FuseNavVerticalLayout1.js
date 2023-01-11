@@ -3,16 +3,17 @@ import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import React from 'react';
 import FuseNavItem from './FuseNavItem';
+import { useTheme } from '@mui/material/styles';
 
 const StyledList = styled(List)(({ theme }) => ({
   '& .fuse-list-item': {
     '&:hover': {
       backgroundColor:
-        theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0,0,0,.04)',
+         'rgba(255, 255, 255, 0.05)'
     },
     '&:focus:not(.active)': {
       backgroundColor:
-        theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0,0,0,.05)',
+         'rgba(255, 255, 255, 0.06)'
     },
   },
   '& .fuse-list-item-text': {
@@ -43,6 +44,7 @@ function FuseNavVerticalLayout1(props) {
   function handleItemClick(item) {
     onItemClick?.(item);
   }
+  const theme = useTheme()
 
   return (
     <StyledList
@@ -52,6 +54,7 @@ function FuseNavVerticalLayout1(props) {
         dense && 'dense',
         className
       )}
+      theme={theme.dark1}
     >
       {navigation.map((_item) => (
         <FuseNavItem

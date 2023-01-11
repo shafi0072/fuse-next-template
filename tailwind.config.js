@@ -6,6 +6,8 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/**/*.{js,ts,jsx,tsx}",
+    "./src/components/app/calendar/*{.js, jsx, ts, tsx}",
+    "./src/components/app/SignIn/*{.jsx, jx}"
   ],
   safelist: ["pl-24", "pl-40", "pl-56", "pl-72", "pl-80"],
   presets: [],
